@@ -10,6 +10,6 @@ public interface ISuperheroRepository {
 
     Superhero getSuperheroByName(String name);
 
-    List<Superhero> getAllsuperhero();
+    List<Superhero> getAllSuperheroes();
 
 }

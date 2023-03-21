@@ -23,20 +23,24 @@ import java.util.List;
         }
 
 
-        public void deleteSuperhero(SuperheroRepository superheroRepository) {
+        public void remove(SuperheroRepository superheroRepository) {
 
         }
 
-        public void updateSuperheroList(ArrayList<Superhero> superheroes) {
-
-        }
-
+        //List of all superheroes
         public List<Superhero> getSuperheroes() {
             return superheroRepository.getAllSuperheroes();
         }
 
         public void createSuperhero() {
         }
-    }
+
+        public void editSuperhero(String heroName, String realName, String city, int creationYear, String superpower, boolean human, double strength) {
+        }
+
+        public void removeSuperhero() {
+
+        }
+        }
 
 

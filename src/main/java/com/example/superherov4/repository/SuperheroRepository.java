@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository("superhero_db")
+//@Repository("superhero_db")
 public class SuperheroRepository implements ISuperheroRepository {
 
     public ArrayList<Superhero> superheroesDB = new ArrayList<>(List.of(
@@ -20,7 +20,7 @@ public class SuperheroRepository implements ISuperheroRepository {
 
     @Value("${spring.datasource.jdbc:mysql://localhost:3306/superhero}")
     private String db_url;
-    @Value("${spring.datasource.Password1?}")
+    @Value("${spring.datasource.simo}")
     private String uid;
     @Value("${spring.datasource.Password1?}")
     private String pwd;
@@ -29,39 +29,49 @@ public class SuperheroRepository implements ISuperheroRepository {
     SuperheroRepository sr = new SuperheroRepository();
 
 
-    public List<Superhero> getSuperheroList = new ArrayList<>();
-    List<Superhero> superheroList = new ArrayList<>();
-    /*try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/superhero", "superheroesDB", "Password1?"))
+    public void getSuperheroListTest() {
+        List<Superhero> superheroList = new ArrayList<>();
 
-    {
-        String SQL = "SELECT * FROM SUPERHERO;";
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(SQL);
-        while (rs.next()) {
 
+            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/superhero",
+                    "superheroesDB", "Password1?")) {
+            String SQL = "SELECT * FROM SUPERHERO;";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL);
+            while (rs.next()) {
+                System.out.println(rs.getString(toString()));
+
+            }
+            //return superheroList;
+        }catch(SQLException exception){
+            System.out.println(exception);
         }
-        return superheroList;
-    }catch (SQLException exception)
+    }
 
 
     public SuperheroRepository() throws SQLException {
     }
 
-    public void addSuperhero(Superhero e) throws SQLException {
+   /* public void addSuperhero(Superhero e) throws SQLException {
         PreparedStatement ps = conn.prepareStatement("SELECT * from superhero");
 
         ResultSet resultSet = ps.executeQuery();
 
+    */
 
-    }*/
+
     public void createSuperhero(String heroName, String realName, String city, int creationYear, String superpower, boolean human, double strength) {
         Superhero hero = new Superhero(heroName, realName, city, creationYear, superpower, human, strength);
         superheroesDB.add(hero);
     }
 
+    /*public void add(Superhero superhero) {
+        superheroList.add(superhero);
+*/
 
-    public boolean deleteSuperhero(Superhero superhero) {
-        return superheroesDB.remove(superhero);
+
+    public void remove(Superhero superhero) {
+        superheroesDB.remove(superhero);
     }
 
     public void updateSuperheroList(ArrayList<Superhero> superheroes) {
@@ -74,20 +84,11 @@ public class SuperheroRepository implements ISuperheroRepository {
     }
 
 
-    public ArrayList<Superhero> SortedList() {
-
-        return null;
-    }
-
     @Override
     public Superhero getSuperheroByName(String name) {
         return getSuperheroByName("Batman");
     }
 
-    @Override
-    public List<Superhero> getAllsuperhero() {
-        return null;
-    }
 }
 
 

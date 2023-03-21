@@ -21,8 +21,6 @@ public class Superhero {
             this.strength = strength;
         }
 
-        public Superhero() {
-        }
 
         // Setter for all the field of attributes
         public void setHeroName(String heroName) {
@@ -32,6 +30,8 @@ public class Superhero {
         public void setCreationYear(int creationYear) {
             this.creationYear = creationYear;
         }
+
+        public void setCity(String city) {this.city = city;}
 
         public void setRealName(String realName) {
             this.realName = realName;
@@ -56,6 +56,8 @@ public class Superhero {
         public String getRealName() {
             return realName;
         }
+
+        public String getCity() {return city;}
 
         public int getCreationYear() {
             return creationYear;
