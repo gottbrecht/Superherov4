@@ -41,6 +41,9 @@ import java.util.List;
         public void removeSuperhero() {
 
         }
+
+        public void addSuperhero() {
         }
+    }
 
 

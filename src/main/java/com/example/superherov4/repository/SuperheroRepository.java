@@ -18,11 +18,11 @@ public class SuperheroRepository implements ISuperheroRepository {
             new Superhero("Paris", "Paris Hilton", "Vecbæk", 1990, "Erotic Capitalism", true, 100)));
 
 
-    @Value("${spring.datasource.jdbc:mysql://localhost:3306/superhero}")
+    @Value("${jdbc:mysql://localhost:3306/superhero}")
     private String db_url;
-    @Value("${spring.datasource.simo}")
+    @Value("${simo}")
     private String uid;
-    @Value("${spring.datasource.Password1?}")
+    @Value("${Password1?}")
     private String pwd;
 
 

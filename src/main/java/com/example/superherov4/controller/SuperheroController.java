@@ -40,6 +40,12 @@ public class SuperheroController {
         List<Superhero> returnList = superheroService.getSuperheroes();
         return new ResponseEntity<>(returnList, HttpStatus.OK);
     }
+    /*@PostMapping("/add")  {
+        public ResponseEntity<Superhero> addSuperhero(@RequestBody Superhero superhero) {
+        superheroService.addSuperhero();
+
+        return new ResponseEntity(superhero, HttpStatus.OK);*/
+    }
 
     @PostMapping("/createSuperhero")
     public ResponseEntity<Superhero> createSuperhero(@RequestBody Superhero superhero) {
@@ -62,6 +68,7 @@ public class SuperheroController {
 
         return new ResponseEntity(superhero, HttpStatus.OK);
     }
+
 
 }
 
