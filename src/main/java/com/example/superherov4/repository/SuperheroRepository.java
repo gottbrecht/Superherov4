@@ -11,12 +11,12 @@ import java.util.List;
 //@Repository("superhero_db")
 public class SuperheroRepository implements ISuperheroRepository {
 
-    public ArrayList<Superhero> superheroesDB = new ArrayList<>(List.of(
+   /* public ArrayList<Superhero> superheroesDB = new ArrayList<>(List.of(
             new Superhero("Batman", "Kenny", "Hjørring", 1999, "Flight", true, 88.5),
             new Superhero("Wonder Woman", "Francis", "København", 1988, "Human strength", true, 69.5),
             new Superhero("Superman", "Ken clark", "Ribe", 1988, "flight", true, 98.7),
             new Superhero("Paris", "Paris Hilton", "Vecbæk", 1990, "Erotic Capitalism", true, 100)));
-
+*/
 
     @Value("${jdbc:mysql://localhost:3306/superhero}")
     private String db_url;
@@ -60,17 +60,17 @@ public class SuperheroRepository implements ISuperheroRepository {
     */
 
 
-    public void createSuperhero(String heroName, String realName, String city, int creationYear, String superpower, boolean human, double strength) {
+    /*public void createSuperhero(String heroName, String realName, String city, int creationYear, String superpower, boolean human, double strength) {
         Superhero hero = new Superhero(heroName, realName, city, creationYear, superpower, human, strength);
         superheroesDB.add(hero);
-    }
+    }*/
 
     /*public void add(Superhero superhero) {
         superheroList.add(superhero);
 */
 
 
-    public void remove(Superhero superhero) {
+    /*public void remove(Superhero superhero) {
         superheroesDB.remove(superhero);
     }
 
@@ -82,11 +82,16 @@ public class SuperheroRepository implements ISuperheroRepository {
     public ArrayList<Superhero> getAllSuperheroes() {
         return superheroesDB;
     }
-
+*/
 
     @Override
     public Superhero getSuperheroByName(String name) {
         return getSuperheroByName("Batman");
+    }
+
+    @Override
+    public List<Superhero> getAllSuperheroes() {
+        return getAllSuperheroes();
     }
 
 }

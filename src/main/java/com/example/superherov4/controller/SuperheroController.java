@@ -45,7 +45,6 @@ public class SuperheroController {
         superheroService.addSuperhero();
 
         return new ResponseEntity(superhero, HttpStatus.OK);*/
-    }
 
     @PostMapping("/createSuperhero")
     public ResponseEntity<Superhero> createSuperhero(@RequestBody Superhero superhero) {
@@ -62,9 +61,9 @@ public class SuperheroController {
 
     }
 
-    @DeleteMapping(path = "/removeSuperhero")
-    public ResponseEntity<Superhero> removesuperhero(@RequestBody Superhero superhero) {
-        superheroService.removeSuperhero();
+    @DeleteMapping(path = "/removeSuperhero/{name}")
+    public ResponseEntity<Superhero> removesuperhero(@RequestBody Superhero superhero, @PathVariable String name) {
+        superheroService.removeSuperhero(name);
 
         return new ResponseEntity(superhero, HttpStatus.OK);
     }

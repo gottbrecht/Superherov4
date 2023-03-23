@@ -38,7 +38,8 @@ import java.util.List;
         public void editSuperhero(String heroName, String realName, String city, int creationYear, String superpower, boolean human, double strength) {
         }
 
-        public void removeSuperhero() {
+        public void removeSuperhero(String name) {
+            superheroRepository.remove(superheroRepository.getSuperheroByName(name));
 
         }
 
